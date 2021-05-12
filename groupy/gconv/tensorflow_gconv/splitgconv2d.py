@@ -87,10 +87,7 @@ def gconv2d_util(h_input, h_output, in_channels, out_channels, ksize):
     else:
         raise ValueError('Unknown (h_input, h_output) pair:' + str((h_input, h_output)))
 
-    if h_output == 'Z2':
-        w_shape = (ksize, ksize, in_channels, out_channels)
-    else:
-        w_shape = (ksize, ksize, in_channels * nti, out_channels)
+    w_shape = (ksize, ksize, in_channels * nti, out_channels)
 
     gconv_shape_info = (out_channels, nto, in_channels, nti, ksize)
     return gconv_indices, gconv_shape_info, w_shape
